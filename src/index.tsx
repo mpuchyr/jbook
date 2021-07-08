@@ -31,7 +31,8 @@ const App = () => {
             plugins: [unpkgPathPlugin()]
         })
 
-        setCode(result.code)
+
+        setCode(result.outputFiles[0].text)
     }
 
     return (
