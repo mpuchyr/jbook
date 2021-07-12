@@ -41,6 +41,13 @@ const App = () => {
 
 
         setCode(result.outputFiles[0].text)
+
+        try {
+            eval(result.outputFiles[0].text)
+        } catch (err) {
+            alert(err)
+        }
+        
     }
 
     return (
@@ -50,9 +57,14 @@ const App = () => {
                 <button onClick={onClick}>Submit</button>
             </div>
             <pre>{code}</pre>
+            <iframe sandbox="" srcDoc={html}/>
         </div>
     )
 }
+
+const html = `
+    <h1>Local HTML doc</h1>
+`
 
 ReactDOM.render(
     <App />,
