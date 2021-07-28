@@ -1,6 +1,6 @@
 import './add-cell.css';
 import { useActions } from '../hooks/use-actions';
-import { specialChars } from '@testing-library/user-event';
+
 
 interface AddCellProps {
     previousCellId: string | null;

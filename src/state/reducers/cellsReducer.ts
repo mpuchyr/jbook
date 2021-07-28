@@ -1,5 +1,4 @@
 import produce from 'immer';
-import { bindActionCreators } from 'redux';
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
 import { Cell } from '../cell';
