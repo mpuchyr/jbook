@@ -31,23 +31,22 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
         return cumulativeCode
     })
 
-    console.log(cumulativeCode)
 
     useEffect(() => {
         if (!bundle) {
-            createBundle(cell.id, cell.content)
+            createBundle(cell.id, cumulativeCode.join('\n'))
             return
         }
         
         const timer = setTimeout(async () => {
-            createBundle(cell.id, cell.content)
+            createBundle(cell.id, cumulativeCode.join('\n'))
         }, 1000)
 
         return () => {
             clearTimeout(timer)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [cell.content, cell.id, createBundle])
+    }, [cumulativeCode.join('\n'), cell.id, createBundle])
 
 
     return (
